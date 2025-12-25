@@ -3,10 +3,16 @@
  * Handles TMDb and OMDb API calls
  */
 
-// Search movies on TMDb
+// Search movies on TMDb (via Vercel serverless function)
 async function searchMoviesTMDb(query) {
     try {
-        const url = `${TMDB_CONFIG.baseUrl}/search/movie?api_key=${TMDB_CONFIG.apiKey}&query=${encodeURIComponent(query)}&include_adult=false`;
+        const params = new URLSearchParams({
+            endpoint: 'search/movie',
+            query: encodeURIComponent(query),
+            include_adult: 'false'
+        });
+
+        const url = `/api/tmdb?${params}`;
         const response = await fetch(url);
 
         if (!response.ok) {
@@ -17,15 +23,20 @@ async function searchMoviesTMDb(query) {
         return data.results || [];
     } catch (error) {
         console.error('Error searching TMDb:', error);
-        showToast('Failed to search movies. Check your TMDb API key.', 'error');
+        showToast('Failed to search movies. Please try again.', 'error');
         return [];
     }
 }
 
-// Get movie details from TMDb
+// Get movie details from TMDb (via Vercel serverless function)
 async function getMovieDetailsTMDb(tmdbId) {
     try {
-        const url = `${TMDB_CONFIG.baseUrl}/movie/${tmdbId}?api_key=${TMDB_CONFIG.apiKey}&append_to_response=credits`;
+        const params = new URLSearchParams({
+            endpoint: `movie/${tmdbId}`,
+            append_to_response: 'credits'
+        });
+
+        const url = `/api/tmdb?${params}`;
         const response = await fetch(url);
 
         if (!response.ok) {
@@ -41,10 +52,10 @@ async function getMovieDetailsTMDb(tmdbId) {
     }
 }
 
-// Get IMDb rating from OMDb
+// Get IMDb rating from OMDb (via Vercel serverless function)
 async function getIMDbRating(imdbId) {
     try {
-        const url = `${OMDB_CONFIG.baseUrl}/?apikey=${OMDB_CONFIG.apiKey}&i=${imdbId}`;
+        const url = `/api/omdb?i=${imdbId}`;
         const response = await fetch(url);
 
         if (!response.ok) {

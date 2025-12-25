@@ -14,21 +14,11 @@ const firebaseConfig = {
     appId: "1:860670358206:web:cf1643b1b9922d55f264ef"
 };
 
-// TMDb API Configuration
-// Get your API key from: https://www.themoviedb.org/settings/api
+// TMDb Configuration (API calls now go through Vercel serverless functions)
 const TMDB_CONFIG = {
-    apiKey: "e131520144b37273db23f983af407a36",
-    baseUrl: "https://api.themoviedb.org/3",
     imageBaseUrl: "https://image.tmdb.org/t/p",
     posterSize: "w500",
     backdropSize: "original"
-};
-
-// OMDb API Configuration
-// Get your API key from: http://www.omdbapi.com/apikey.aspx
-const OMDB_CONFIG = {
-    apiKey: "a7f62a99",
-    baseUrl: "https://www.omdbapi.com"
 };
 
 // Application Configuration
