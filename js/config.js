@@ -52,20 +52,13 @@ async function simpleHash(str) {
         .join('');
 }
 
-// Validate that user has configured their API keys
+// Validate that user has configured Firebase
+// Note: TMDb and OMDb API keys are now handled by Vercel environment variables
 function validateConfig() {
     const errors = [];
 
-    if (firebaseConfig.apiKey === "YOUR_FIREBASE_API_KEY") {
+    if (!firebaseConfig.apiKey || firebaseConfig.apiKey === "YOUR_FIREBASE_API_KEY") {
         errors.push("Firebase configuration not set. Please update firebaseConfig in js/config.js");
-    }
-
-    if (TMDB_CONFIG.apiKey === "YOUR_TMDB_API_KEY") {
-        errors.push("TMDb API key not set. Get one from https://www.themoviedb.org/settings/api");
-    }
-
-    if (OMDB_CONFIG.apiKey === "YOUR_OMDB_API_KEY") {
-        errors.push("OMDb API key not set. Get one from http://www.omdbapi.com/apikey.aspx");
     }
 
     if (errors.length > 0) {
