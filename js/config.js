@@ -25,20 +25,9 @@ const firebaseConfig = {
 
 // TMDb Configuration (API calls now go through Vercel serverless functions)
 const TMDB_CONFIG = {
-    // For local development only - remove before deploying!
-    // These will be ignored when deployed to Vercel (serverless functions will be used)
-    apiKey: "e131520144b37273db23f983af407a36", // LOCAL DEV ONLY
-    baseUrl: "https://api.themoviedb.org/3", // LOCAL DEV ONLY
     imageBaseUrl: "https://image.tmdb.org/t/p",
     posterSize: "w500",
     backdropSize: "original"
-};
-
-// OMDb Configuration (API calls now go through Vercel serverless functions)
-const OMDB_CONFIG = {
-    // For local development only - remove before deploying!
-    apiKey: "a7f62a99", // LOCAL DEV ONLY
-    baseUrl: "https://www.omdbapi.com" // LOCAL DEV ONLY
 };
 
 // Application Configuration
