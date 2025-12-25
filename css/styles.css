@@ -1,0 +1,667 @@
+/* Custom Styles for MovieDB Application */
+
+body {
+    font-family: 'Spline Sans', sans-serif;
+}
+
+/* Custom scrollbar for webkit */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #191022;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #3c2f4a;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #7f13ec;
+}
+
+/* Fix select dropdown native arrow */
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: none;
+    padding-right: 2.5rem !important;
+}
+
+/* Tab styles */
+.tab-button.active .tab-indicator {
+    background-color: #7f13ec !important;
+}
+
+.tab-button.active span {
+    color: white !important;
+}
+
+/* Modal backdrop */
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(4px);
+    padding: 1rem;
+    overflow-y: auto;
+    animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.modal-content {
+    animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Movie card hover effects */
+.movie-card {
+    transition: all 0.3s ease;
+}
+
+.movie-card:hover {
+    transform: scale(1.02);
+}
+
+.movie-card img {
+    transition: transform 0.5s ease;
+}
+
+.movie-card:hover img {
+    transform: scale(1.1);
+}
+
+/* Star rating interactive */
+.star-rating {
+    display: flex;
+    gap: 0.25rem;
+    cursor: pointer;
+}
+
+.star-rating .star {
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.star-rating .star:hover {
+    transform: scale(1.1);
+}
+
+.star-rating.interactive .star:hover~.star {
+    color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Loading spinner */
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.animate-spin {
+    animation: spin 1s linear infinite;
+}
+
+/* Toast animations */
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOutRight {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+.toast {
+    animation: slideInRight 0.3s ease-out;
+}
+
+.toast.removing {
+    animation: slideOutRight 0.3s ease-out;
+}
+
+/* Admin mode highlights */
+.admin-mode .admin-controls {
+    display: flex !important;
+}
+
+.admin-mode .movie-card {
+    position: relative;
+}
+
+.admin-mode .movie-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 2px solid transparent;
+    border-radius: 0.5rem;
+    pointer-events: none;
+    transition: border-color 0.3s ease;
+}
+
+.admin-mode .movie-card:hover::after {
+    border-color: rgba(249, 115, 22, 0.5);
+}
+
+/* Search results grid */
+.search-results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Custom checkbox styles */
+input[type="checkbox"]:checked {
+    background-color: #7f13ec;
+    border-color: #7f13ec;
+}
+
+/* Rating slider custom styles */
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-track {
+    background: #3c2f4a;
+    height: 0.5rem;
+    border-radius: 0.25rem;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 1rem;
+    width: 1rem;
+    background: #7f13ec;
+    border-radius: 50%;
+    margin-top: -0.25rem;
+    box-shadow: 0 0 0 4px rgba(127, 19, 236, 0.2);
+    transition: all 0.2s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 0 6px rgba(127, 19, 236, 0.3);
+}
+
+input[type="range"]::-moz-range-track {
+    background: #3c2f4a;
+    height: 0.5rem;
+    border-radius: 0.25rem;
+}
+
+input[type="range"]::-moz-range-thumb {
+    height: 1rem;
+    width: 1rem;
+    background: #7f13ec;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(127, 19, 236, 0.2);
+}
+
+/* Truncate text */
+.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Collapsible filter sections */
+.filter-section {
+    transition: all 0.3s ease;
+}
+
+.filter-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    padding: 0.1rem;
+    margin: -0.75rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.2s ease;
+}
+
+.filter-section-header:hover {
+    background-color: rgba(127, 19, 236, 0.1);
+}
+
+.filter-section-header .collapse-icon {
+    transition: transform 0.3s ease;
+    color: #ab9db9;
+}
+
+.filter-section.collapsed .collapse-icon {
+    transform: rotate(-90deg);
+}
+
+.filter-section-content {
+    max-height: 500px;
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease, margin-top 0.3s ease;
+    opacity: 1;
+    margin-top: 0.75rem;
+}
+
+.filter-section.collapsed .filter-section-content {
+    max-height: 0;
+    opacity: 0;
+    margin-top: 0;
+}
+
+/* Sticky and compact sidebar */
+.filters-sidebar {
+    position: sticky;
+    top: 5rem;
+    max-height: calc(100vh - 6rem);
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 0.5rem;
+    margin-left: -2rem;
+}
+
+/* Custom scrollbar for sidebar */
+.filters-sidebar::-webkit-scrollbar {
+    width: 4px;
+}
+
+.filters-sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.filters-sidebar::-webkit-scrollbar-thumb {
+    background: #3c2f4a;
+    border-radius: 2px;
+}
+
+.filters-sidebar::-webkit-scrollbar-thumb:hover {
+    background: #7f13ec;
+}
+
+/* Compact filter labels */
+.filter-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #ab9db9;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.filter-label .material-symbols-outlined {
+    font-size: 1.125rem;
+    background: linear-gradient(135deg, #7f13ec 0%, #9d4bf2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Compact country and rating sections */
+.compact-filter {
+    padding: 1rem;
+    background: linear-gradient(135deg, rgba(36, 26, 48, 0.6) 0%, rgba(28, 20, 36, 0.6) 100%);
+    border: 1px solid rgba(127, 19, 236, 0.2);
+    border-radius: 0.75rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.compact-filter:hover {
+    background: linear-gradient(135deg, rgba(36, 26, 48, 0.9) 0%, rgba(28, 20, 36, 0.9) 100%);
+    border-color: rgba(127, 19, 236, 0.5);
+    box-shadow: 0 4px 12px rgba(127, 19, 236, 0.15);
+    transform: translateY(-2px);
+}
+
+/* Enhanced filter section headers */
+.filter-section-header {
+    padding: 0.875rem;
+    margin: -0.125rem;
+    border-radius: 0.75rem;
+    background: linear-gradient(135deg, transparent 0%, rgba(127, 19, 236, 0.05) 100%);
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.filter-section-header:hover {
+    background: linear-gradient(135deg, rgba(127, 19, 236, 0.1) 0%, rgba(157, 75, 242, 0.1) 100%);
+    border-color: rgba(127, 19, 236, 0.3);
+    box-shadow: 0 2px 8px rgba(127, 19, 236, 0.1);
+}
+
+/* Clear filters button enhancement */
+#clearFilters {
+    background: linear-gradient(135deg, rgba(36, 26, 48, 0.8) 0%, rgba(28, 20, 36, 0.8) 100%);
+    border: 1px solid rgba(127, 19, 236, 0.3);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+#clearFilters:hover {
+    background: linear-gradient(135deg, #7f13ec 0%, #6b10c6 100%);
+    border-color: #7f13ec;
+    box-shadow: 0 4px 16px rgba(127, 19, 236, 0.3);
+    transform: translateY(-1px);
+}
+
+/* Mobile sidebar */
+.mobile-filter-toggle {
+    display: none;
+}
+
+/* Responsive utilities */
+@media (max-width: 1024px) {
+
+    /* Hide sidebar on mobile, show toggle button */
+    .mobile-filter-toggle {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        width: 100%;
+        padding: 0.75rem 1rem;
+        background: #241a30;
+        border: 1px solid #3c2f4a;
+        border-radius: 0.5rem;
+        color: white;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+    .mobile-filter-toggle:hover {
+        background: #2d2239;
+        border-color: #7f13ec;
+    }
+
+    .filters-sidebar {
+        position: fixed !important;
+        top: 0 !important;
+        left: -100%;
+        width: 85%;
+        max-width: 320px;
+        height: 100vh !important;
+        max-height: 100vh !important;
+        background: #191022;
+        z-index: 100;
+        padding: 1.5rem;
+        overflow-y: auto;
+        transition: left 0.3s ease;
+        border-right: 1px solid #3c2f4a;
+    }
+
+    .filters-sidebar.active {
+        left: 0;
+    }
+
+    .filter-backdrop {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(4px);
+        z-index: 99;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+    }
+
+    .filter-backdrop.active {
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    .filter-close-btn {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1.5rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid #3c2f4a;
+    }
+
+    .filter-close-btn button {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        background: transparent;
+        border: 1px solid #3c2f4a;
+        border-radius: 0.5rem;
+        color: white;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+    .filter-close-btn button:hover {
+        background: #7f13ec;
+        border-color: #7f13ec;
+    }
+}
+
+@media (max-width: 768px) {
+    .search-results-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Adjust header for mobile */
+    .sticky.top-0 {
+        position: sticky;
+    }
+
+    /* Stack search and button on mobile */
+    .action-header-row {
+        flex-direction: column;
+    }
+
+    /* Adjust stats layout */
+    .stats-row {
+        flex-direction: column;
+        align-items: flex-start !important;
+    }
+
+    /* Better movie grid on mobile */
+    #movieGrid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1rem;
+    }
+
+    /* Smaller text on mobile */
+    .text-xl {
+        font-size: 1.125rem;
+    }
+
+    .text-2xl {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 640px) {
+
+    /* Single column for very small screens */
+    #movieGrid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .search-results-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Pulse animation for random picker */
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Smooth transitions for all interactive elements */
+button,
+a,
+input,
+select,
+textarea {
+    transition: all 0.2s ease;
+}
+
+/* Focus styles for accessibility */
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid #7f13ec;
+    outline-offset: 2px;
+}
+
+/* Disabled state */
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Selection color */
+::selection {
+    background-color: #7f13ec;
+    color: white;
+}
+
+/* Better spacing and UI polish */
+.space-y-8>*+* {
+    margin-top: 2rem;
+}
+
+/* Improve button hover states */
+button:not(:disabled):active {
+    transform: scale(0.98);
+}
+
+/* Better focus states */
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #7f13ec !important;
+    box-shadow: 0 0 0 3px rgba(127, 19, 236, 0.1) !important;
+}
+
+/* Smooth hover for movie cards */
+.movie-card {
+    will-change: transform;
+}
+
+/* Better empty state */
+#emptyState {
+    min-height: 400px;
+}
+
+/* Improve toast positioning on mobile */
+@media (max-width: 640px) {
+    #toastContainer {
+        bottom: 1rem;
+        right: 1rem;
+        left: 1rem;
+    }
+
+    .toast {
+        min-width: auto !important;
+        width: 100%;
+    }
+}
+
+/* Better modal on mobile */
+@media (max-width: 640px) {
+    .modal-backdrop {
+        padding: 0.5rem;
+    }
+
+    .modal-content {
+        max-height: 95vh;
+        overflow-y: auto;
+    }
+}
+
+/* Improve grid controls on mobile */
+@media (max-width: 768px) {
+    .grid-controls-row {
+        flex-direction: column;
+        align-items: flex-start !important;
+    }
+
+    .grid-controls-row>* {
+        width: 100%;
+    }
+
+    .grid-controls-row .flex {
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+
+/* Add subtle animation to filter sections */
+.filter-section-header:active {
+    transform: scale(0.98);
+}
