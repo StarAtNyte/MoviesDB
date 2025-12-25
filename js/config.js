@@ -1,10 +1,19 @@
 /**
  * Configuration file for MovieDB Application
- * Replace the placeholder values with your own API keys
+ *
+ * SECURITY NOTE:
+ * - TMDb and OMDb API keys are hidden via Vercel serverless functions (/api/tmdb.js, /api/omdb.js)
+ * - Firebase API key is INTENTIONALLY public (required for client-side SDK)
+ * - Firebase security is handled by Firestore Security Rules, NOT by hiding the API key
+ * - See: https://firebase.google.com/docs/projects/api-keys
  */
 
 // Firebase Configuration
 // Get your config from: https://console.firebase.google.com/
+//
+// ⚠️ IMPORTANT: This API key is meant to be public!
+// Security comes from Firestore Security Rules (set in Firebase Console)
+// Set rules to restrict write access and add domain restrictions to prevent abuse
 const firebaseConfig = {
     apiKey: "AIzaSyDjmiat7tqvCFRtCgSGq0G8Rzg18jyEBoo",
     authDomain: "moviesdb-caa3a.firebaseapp.com",
@@ -16,9 +25,20 @@ const firebaseConfig = {
 
 // TMDb Configuration (API calls now go through Vercel serverless functions)
 const TMDB_CONFIG = {
+    // For local development only - remove before deploying!
+    // These will be ignored when deployed to Vercel (serverless functions will be used)
+    apiKey: "e131520144b37273db23f983af407a36", // LOCAL DEV ONLY
+    baseUrl: "https://api.themoviedb.org/3", // LOCAL DEV ONLY
     imageBaseUrl: "https://image.tmdb.org/t/p",
     posterSize: "w500",
     backdropSize: "original"
+};
+
+// OMDb Configuration (API calls now go through Vercel serverless functions)
+const OMDB_CONFIG = {
+    // For local development only - remove before deploying!
+    apiKey: "a7f62a99", // LOCAL DEV ONLY
+    baseUrl: "https://www.omdbapi.com" // LOCAL DEV ONLY
 };
 
 // Application Configuration
