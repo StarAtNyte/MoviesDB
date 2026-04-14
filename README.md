@@ -5,25 +5,25 @@ A complete web application for managing your personal movie collection. Built wi
 ## Features
 
 ### Public Features (Anyone can access)
-- ✅ Browse all movies in the database
-- ✅ Search by title, genre, or country
-- ✅ Filter by genre, country, decade, and rating
-- ✅ Sort by various criteria (date watched, rating, title, year)
-- ✅ View detailed movie information
-- ✅ See statistics (average rating, monthly count)
-- ✅ Random movie picker
-- ✅ Export collection as JSON
-- ✅ Real-time updates when admin makes changes
-- ✅ Responsive design (desktop, tablet, mobile)
+-  Browse all movies in the database
+-  Search by title, genre, or country
+-  Filter by genre, country, decade, and rating
+-  Sort by various criteria (date watched, rating, title, year)
+-  View detailed movie information
+-  See statistics (average rating, monthly count)
+-  Random movie picker
+-  Export collection as JSON
+-  Real-time updates when admin makes changes
+-  Responsive design (desktop, tablet, mobile)
 
 ### Admin Features (Password protected)
-- ✅ Add new movies via TMDb search
-- ✅ Edit movie details (rating, notes, status, date)
-- ✅ Delete movies
-- ✅ Batch operations
-- ✅ Import/Export data
-- ✅ Change admin password
-- ✅ Clear all data
+-  Add new movies via TMDb search
+-  Edit movie details (rating, notes, status, date)
+-  Delete movies
+-  Batch operations
+-  Import/Export data
+-  Change admin password
+-  Clear all data
 
 ## Technology Stack
 
