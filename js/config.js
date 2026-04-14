@@ -33,7 +33,7 @@ const TMDB_CONFIG = {
 // Application Configuration
 const APP_CONFIG = {
     // Admin password hash (SHA-256)
-    adminPasswordHash: "cb8ca4ca33764899f6aa25c0c067804a0ca6e0f0300a2ab15744fc35cd62296a",
+    adminPasswordHash: "44c25b13d6a61becf8b1453c8e7459b24070365392188dcf004431e9da07062b",
 
     // Number of logo clicks to access admin login
     logoClicksForAdmin: 5,
